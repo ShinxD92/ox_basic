@@ -43,7 +43,7 @@ tasks:
 
   ## Download ESX core
   - action: download_github
-    src: https://github.com/thelindat/esx-legacy
+    src: https://github.com/esx-framework/esx-legacy
     ref: main
     subpath: "[esx]"
     dest: ./resources/[esx]
@@ -59,7 +59,7 @@ tasks:
 
   ## esx_license
   - action: download_github
-    src: https://github.com/thelindat/esx-legacy
+    src: https://github.com/esx-framework/esx-legacy
     ref: main
     subpath: "[esx_addons]/esx_license"
     dest: ./resources/[esx_addons]/esx_license
@@ -83,7 +83,7 @@ tasks:
 
   ## oxmysql
   - action: download_file
-    url: https://github.com/overextended/oxmysql/releases/download/v1.9.2/oxmysql-v1.9.2.zip
+    url: https://github.com/overextended/oxmysql/releases/download/v1.9.3/oxmysql-v1.9.3.zip
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
@@ -92,7 +92,16 @@ tasks:
     src: ./tmp/oxmysql
     dest: ./resources/oxmysql
 
-
+  ## ox_inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/archive/refs/heads/main.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./tmp
+  - action: move_path
+    src: ./tmp/ox_inventory
+    dest: ./resources/[esx_addons]/ox_inventory
 
   ## loadingscreen
   - action: download_github
